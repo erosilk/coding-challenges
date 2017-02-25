@@ -29,9 +29,9 @@ export default class User extends React.Component {
               <button className="assist">
                 {
                   user.nextEvent.near ? (
-                    <img className="icon" src="https://cdn.aerolab.co/coding-challenge/02/cal-grey.svg" alt="" />
-                  ) : (
                     <img className="icon" src="https://cdn.aerolab.co/coding-challenge/02/cal-white.svg" alt="" />
+                  ) : (
+                    <img className="icon" src="https://cdn.aerolab.co/coding-challenge/02/cal-grey.svg" alt="" />
                   )
                 }
                 <span> {user.nextEvent.date} </span>
