@@ -8,8 +8,6 @@ function dribbleShots(cb) {
       shots[i].image = t.shots[i].images.hidpi;
       delete shots[i].images;
     }
-    console.log(shots);
-    console.log(shots[0]);
     cb(shots);
   });
 

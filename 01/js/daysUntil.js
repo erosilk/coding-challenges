@@ -11,13 +11,13 @@ function daysUntil(date) {
     date.year(moment().year()+1);
   }
 
-  diff = date.diff(moment(), 'days');
+  //We add 1 to diff because number has been rounded down.
+  diff = date.diff(moment(), 'days')+1;
 
 
   if (date.dayOfYear() === now){
     return "cake";
-  } else if (diff == 65){
-    // We use diff == 65 instead of 66 because the number has been rounded down.
+  } else if (diff == 66){
     return 66;
   } else if (diff > 300) {
     return diff;
