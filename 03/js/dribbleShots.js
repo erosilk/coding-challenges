@@ -1,15 +1,15 @@
 /* ===== Edit Function ===== */
 
-function dribbleShots(cb) {
-  var shots = [];
-  $.get('https://kiteapi.herokuapp.com/dribbble/shots/Creativedash', function(t) {
-    for (var i = 0; i < t.shots.length; i++) {
-      shots.push(t.shots[i]);
-      shots[i].image = t.shots[i].images.hidpi;
-      delete shots[i].images;
-    }
-    cb(shots);
+async function dribbleShots(cb) {
+  const request = await fetch(
+    "https://kiteapi.herokuapp.com/dribbble/shots/Creativedash"
+  );
+  const json = await request.json();
+
+  const shots = json.shots.filter(shot => shot.images.hidpi).map(shot => {
+    return { title: shot.title, link: shot.link, image: shot.images.hidpi };
   });
 
+  cb(shots);
 }
 /* ===== End Function ===== */
